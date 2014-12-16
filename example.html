@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" /> 
+    <meta name="author" content="Sandro Alves Peres" />	
+    <title>JQuery Checkbox</title>
+    <link rel="stylesheet" href="jquery.checkbox.css" type="text/css" media="all" />       
+    <script type="text/javascript" src="jquery-1.8.3.js"></script>     
+	<script type="text/javascript" src="jquery.checkbox.js"></script>   
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+		
+			$('#check1').checkbox();	
+
+			// With callback
+			$('#check2').checkbox({
+				callback: function()
+				{
+					alert('Working with callback: ' + $(this).is(':checked'));
+				}
+			});			
+			
+		});
+	</script>
+	<style media="all">
+		body {
+			margin: 50px;
+			font-family: verdana, tahoma, sans-serif;
+			font-size: 12px;
+			color: #111222;
+		}
+		
+		.title {
+			font-size: 14px;
+			font-weight: bold;
+			color: #184E76;
+		}
+		
+		.code {
+			margin-left: 30px;
+			color: #606060;
+			margin-bottom: 20px;
+		}
+		
+		.title-rule {
+			font-size: 16px;
+			font-weight: bold;
+			color: orangered;
+		}
+		
+		.rule {
+			margin-left: 30px;
+			color: #069;
+			margin-bottom: 20px;
+		}		
+		
+        .comments {
+            font-style: italic;
+            color: #808080;
+        }		
+		
+		label {
+			color: #202020;
+			vertical-align: middle;
+		}
+		
+		a {
+			text-decoration: none;
+			color: #03f;
+		}
+		
+		a:hover {
+			color: orangered;
+			text-decoration: underline;
+		}
+	</style>
+</head>
+
+<body>
+
+	<h1>JQuery Checkbox</h1>
+	<h2>Checkbox with good visual</h2>
+	<hr size="1" color="#c0c0c0" />
+	<p>&nbsp;</p>
+	
+	<p><input type="checkbox" name="check1" id="check1" value="1" /> <label for="check1">Check 1</label> &nbsp; &nbsp; </p>
+	<p>
+		<a href="javascript:void(0);" onclick="$('#check1').checkbox('enable');">Enable</a> - 
+		<a href="javascript:void(0);" onclick="$('#check1').checkbox('disable');">Disable</a> -
+		<a href="javascript:void(0);" onclick="$('#check1').checkbox('on');">Check</a> -
+		<a href="javascript:void(0);" onclick="$('#check1').checkbox('off');">Uncheck</a>
+	</p>
+	
+	<p>&nbsp;</p>
+	
+	<p><input type="checkbox" name="check2" id="check2" value="2" /> <label for="check2">Check 2 <i>(With callback)</i></label> &nbsp; &nbsp; </p>
+	<p>
+		<a href="javascript:void(0);" onclick="$('#check2').checkbox('enable');">Enable</a> - 
+		<a href="javascript:void(0);" onclick="$('#check2').checkbox('disable');">Disable</a> -
+		<a href="javascript:void(0);" onclick="$('#check2').checkbox('on');">Check</a> -
+		<a href="javascript:void(0);" onclick="$('#check2').checkbox('off');">Uncheck</a>
+	</p>
+	
+	<p>&nbsp;</p>
+
+	<p class="title">Using selector jquery for all checkboxes</p>
+	<p>
+		<a href="javascript:void(0);" onclick="$('input:checkbox').checkbox('enable');">Enable</a> - 
+		<a href="javascript:void(0);" onclick="$('input:checkbox').checkbox('disable');">Disable</a> -
+		<a href="javascript:void(0);" onclick="$('input:checkbox').checkbox('on');">Check</a> -
+		<a href="javascript:void(0);" onclick="$('input:checkbox').checkbox('off');">Uncheck</a>
+	</p>
+
+	<p>&nbsp;</p>
+	
+	<p class="title">Create</p>
+	<p class="code">
+		$('input:checkbox').checkbox();	
+	</p>
+	<p class="code">
+        <span class="comments">// with options</span><br />	
+        $('input:checkbox').checkbox({
+            <br />&nbsp; &nbsp; &nbsp; &nbsp;callback: function()
+            <br />&nbsp; &nbsp; &nbsp; &nbsp;{
+            <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;alert('Checked: ' + $(this).is(':checked'));
+            <br />&nbsp; &nbsp; &nbsp; &nbsp;}         
+        <br />}); 
+	</p>  	
+	
+	<p class="title">Enable</p>
+	<p class="code">
+		$('input:checkbox').checkbox('enable');	
+	</p>
+
+	<p class="title">Disable</p>
+	<p class="code">
+		$('input:checkbox').checkbox('disable');
+	</p>
+
+	<p class="title">Check</p>
+	<p class="code">
+		$('input:checkbox').checkbox('on');	
+	</p>	
+	
+	<p class="title">Uncheck</p>
+	<p class="code">
+		$('input:checkbox').checkbox('off');	
+	</p>
+
+	<p>&nbsp;</p>
+	
+	<p class="title-rule">Rules</p>
+	<p class="rule">
+		- Do not include a parent type "label" for the checkbox element, Instead, use the attribute "for"
+	</p>
+	
+</body>
+</html>
